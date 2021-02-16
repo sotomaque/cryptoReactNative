@@ -3,12 +3,12 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'cryptoApp' do
+target 'CryptocurrencyApp' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'cryptoAppTests' do
+  target 'CryptocurrencyAppTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -23,10 +23,10 @@ target 'cryptoApp' do
   end
 end
 
-target 'cryptoApp-tvOS' do
-  # Pods for cryptoApp-tvOS
+target 'CryptocurrencyApp-tvOS' do
+  # Pods for CryptocurrencyApp-tvOS
 
-  target 'cryptoApp-tvOSTests' do
+  target 'CryptocurrencyApp-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
