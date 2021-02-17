@@ -11,7 +11,12 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { CurrencyLabel, HeaderBar, TextButton } from '../components';
+import {
+  CurrencyLabel,
+  HeaderBar,
+  TextButton,
+  PriceAlert,
+} from '../components';
 import { dummyData, COLORS, SIZES, FONTS, icons } from '../constants';
 import {
   VictoryScatter,
@@ -267,11 +272,59 @@ const CryptoDetail = ({ route, navigation }) => {
               code={selectedCurrency?.code}
             />
           </View>
+
           {/* Amount */}
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ marginRight: SIZES.base }}>
+              <Text style={{ ...FONTS.h3 }}>
+                ${selectedCurrency?.wallet.value}
+              </Text>
+              <Text
+                style={{
+                  textAlign: 'right',
+                  color: COLORS.gray,
+                  ...FONTS.body4,
+                }}>
+                {selectedCurrency?.wallet.crypto} {selectedCurrency?.code}
+              </Text>
+            </View>
+            <Image
+              source={icons.right_arrow}
+              resizeMode="cover"
+              style={{ width: 20, height: 20, tintColor: COLORS.gray }}
+            />
+          </View>
         </View>
+        {/* Buy Button */}
+        <TextButton
+          label="Buy"
+          onPress={() =>
+            navigation.navigate('Transaction', { currency: selectedCurrency })
+          }
+        />
       </View>
     );
   }
+
+  function renderAboutSection() {
+    return (
+      <View
+        style={{
+          marginTop: SIZES.padding,
+          marginHorizontal: SIZES.radius,
+          padding: SIZES.radius,
+          borderRadius: SIZES.radius,
+          backgroundColor: COLORS.white,
+          ...styles.shadow,
+        }}>
+        <Text style={{ ...FONTS.h3 }}>About {selectedCurrency?.currency}</Text>
+        <Text style={{ marginTop: SIZES.base, ...FONTS.body3 }}>
+          {selectedCurrency?.description}
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightGray1 }}>
       <HeaderBar right={true} />
@@ -279,6 +332,13 @@ const CryptoDetail = ({ route, navigation }) => {
         <View style={{ flex: 1, paddingBottom: SIZES.padding }}>
           {renderChart()}
           {renderBuyButtonArea()}
+          {renderAboutSection()}
+          <PriceAlert
+            customContainerStyle={{
+              marginTop: SIZES.padding,
+              marginHorizontal: SIZES.radius,
+            }}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
