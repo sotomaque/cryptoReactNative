@@ -1,18 +1,18 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Image, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import {
   createBottomTabNavigator,
   BottomTabBar,
 } from '@react-navigation/bottom-tabs';
 import LinearGradient from 'react-native-linear-gradient';
 
-import {Home} from '../screens';
-import {COLORS, FONTS, icons} from '../constants';
+import { Home } from '../screens';
+import { COLORS, FONTS, icons } from '../constants';
 
 const Tab = createBottomTabNavigator();
 
-const TabBarCustomButton = ({children, onPress}) => {
+const TabBarCustomButton = ({ children, onPress }) => {
   return (
     <TouchableOpacity
       style={{
@@ -55,11 +55,11 @@ const Tabs = () => {
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({focused}) => (
-            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Image
                 source={icons.home}
-                resizeMethod="contain"
+                resizeMode="contain"
                 style={{
                   width: 30,
                   height: 30,
@@ -81,11 +81,11 @@ const Tabs = () => {
         name="Portfolio"
         component={Home}
         options={{
-          tabBarIcon: ({focused}) => (
-            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Image
                 source={icons.pie_chart}
-                resizeMethod="contain"
+                resizeMode="contain"
                 style={{
                   width: 30,
                   height: 30,
@@ -107,10 +107,10 @@ const Tabs = () => {
         name="Transaction"
         component={Home}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <Image
               source={icons.transaction}
-              resizeMethod="contain"
+              resizeMode="contain"
               style={{
                 width: 30,
                 height: 30,
@@ -125,11 +125,11 @@ const Tabs = () => {
         name="Prices"
         component={Home}
         options={{
-          tabBarIcon: ({focused}) => (
-            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Image
                 source={icons.line_graph}
-                resizeMethod="contain"
+                resizeMode="contain"
                 style={{
                   width: 30,
                   height: 30,
@@ -151,11 +151,11 @@ const Tabs = () => {
         name="Settings"
         component={Home}
         options={{
-          tabBarIcon: ({focused}) => (
-            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Image
                 source={icons.settings}
-                resizeMethod="contain"
+                resizeMode="contain"
                 style={{
                   width: 30,
                   height: 30,
